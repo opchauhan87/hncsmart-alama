@@ -1,8 +1,8 @@
 For those of you who don't know who I am, I am carpenox from the ViciDial forums and as most people can confirm, I help out of the goodness of my heart to our community. I want us all to succeed together! With that being said, If my knowledge base or my github has helped you or your business, please feel free to donate to help me keep the help going.
 
-# AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email optools87#gmail.com for more info.
+# AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email optools87@gmail.com for more info.
 
-# www.dialer.one for our full knowledge base
+
 
 
 # VICIDIAL INSTALLATION SCRIPTS (Default is Eastern Time Zone US)
