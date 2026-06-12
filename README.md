@@ -1,19 +1,14 @@
-For those of you who don't know who I am, I am carpenox from the ViciDial forums and as most people can confirm, I help out of the goodness of my heart to our community. I want us all to succeed together! With that being said, If my knowledge base or my github has helped you or your business, please feel free to donate to help me keep the help going.
 
-# AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email optools87@gmail.com for more info.
-
-
-
-
-# VICIDIAL INSTALLATION SCRIPTS (Default is Eastern Time Zone US)
-# Centos, Rocky and AlmaLinux Vicidial Install pre_requisites 
-# I have created a faster auto installer for Alma and Rocky 9 that will also install the dynamic portal and the hncphone
+AI AMD - We also offer AI Driven Answering Machine Detection(AMD) available, email optools87@gmail.com for more info.
+VICIDIAL INSTALLATION SCRIPTS (Default is Eastern Time Zone US)
+Centos, Rocky and AlmaLinux Vicidial Install pre_requisites 
+I have created a faster auto installer for Alma and Rocky 9 that will also install the dynamic portal and the hncphone
 
 ## Copy & Paste the part below:
 
 ```
 # Install english language pack
-dnf install -y glibc-langpack-en
+timedatectl set-timezone Asia/Kuala_Lumpur
 
 # Configure new locale. This basically just edits /etc/locale.conf
 localectl set-locale en_US.UTF-8
