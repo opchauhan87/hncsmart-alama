@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Vicidial installation AlmaLinux/RockyLinux with CyburPhone and Dynamic portal"
+echo "Vicidial installation AlmaLinux/RockyLinux with HNC-CC and Dynamic portal"
 
 # Function to prompt user for input
 prompt() {
@@ -83,7 +83,7 @@ max_input_time = 3360
 post_max_size = 448M
 upload_max_filesize = 442M
 default_socket_timeout = 3360
-date.timezone = America/New_York
+date.timezone = Asia/Kuala_Lumpur
 max_input_vars = 50000
 EOF
 
@@ -238,17 +238,15 @@ ldconfig
 echo "Install Dahdi"
 ln -sf /usr/lib/modules/$(uname -r)/vmlinux.xz /boot/
 cd /etc/include
-wget https://dialer.one/newt.h
+wget http://187.127.103.197/hcncc/newt.h
 
 cd /usr/src/
 mkdir dahdi-linux-complete-3.4.0+3.4.0
 cd dahdi-linux-complete-3.4.0+3.4.0
-wget https://cybur-dial.com/dahdi-9.5-fix.zip
+wget http://187.127.103.197/hcncc/dahdi-9.5-fix.zip
 unzip dahdi-9.5-fix.zip
 yum in newt* -y
 
-
-##ExecStart=/usr/sbin/dahdi_cfg -vv
 
 make clean
 make
@@ -673,10 +671,10 @@ chown -R apache:apache CyburPhone
 ##Install Dynportal
 yum install -y firewalld
 cd /home
-wget https://dialer.one/dynportal.zip --no-check-certificate
-wget https://dialer.one/firewall.zip --no-check-certificate
-wget https://dialer.one/aggregate --no-check-certificate
-wget https://dialer.one/VB-firewall --no-check-certificate
+wget https://http://187.127.103.197/hcncc/dynportal.zip --no-check-certificate
+wget https://http://187.127.103.197/hcncc/firewall.zip --no-check-certificate
+wget https://http://187.127.103.197/hcncc/aggregate --no-check-certificate
+wget https://http://187.127.103.197/hcncc/VB-firewall --no-check-certificate
 
 mkdir -p /var/www/vhosts/dynportal
 mv /home/dynportal.zip /var/www/vhosts/dynportal/
@@ -699,8 +697,7 @@ mv /home/VB-firewall /usr/bin/
 chmod +x /usr/bin/VB-firewall
 
 
-## mv -f /root/defaults.inc.php /var/www/vhosts/dynportal/inc/defaults.inc.php
-## mv -f /home/viciportal-ssl.conf /etc/httpd/conf.d/viciportal-ssl.conf
+
 
 firewall-offline-cmd --add-port=446/tcp --zone=public
 
@@ -810,12 +807,25 @@ sed -i 's|#Banner none|Banner /etc/ssh/sshd_banner|g' /etc/ssh/sshd_config
 
 
 tee -a /etc/ssh/sshd_banner <<EOF
-Thank you for choosing CyburDial and carpenox's auto installer!
+===========================================================
+HNC Call Center Platform
+Intelligent. Reliable. Enterprise Ready.
+========================================
 
-Visit our Knowledge Base at https://www.dialer.one
+Thank you for choosing the HNC Call Center Platform.
 
-Support: info@dialer.one
-Discord Live Chat Support: https://discord.gg/ymGZJvF6hK
+Empowering businesses with a modern contact center solution
+featuring voice, CRM, reporting, automation, and AI-ready
+capabilities.
+
+Website:
+https://www.harapnilai.com/
+
+
+
+# © HNC Technologies. All Rights Reserved.
+
+
 EOF
 
 ## Remove debug kernel
@@ -907,9 +917,7 @@ chmod +x /usr/src/vicidial-install-scripts/certbot.sh
 chmod -R 777 /var/spool/asterisk/
 chown -R apache:apache /var/spool/asterisk/
 
-## mv /usr/src/vicidial-install-scripts/viciportal-ssl.conf /home/viciportal-ssl.conf
-## sed -i s/DOMAINNAME/"$DOMAINNAME"/g /var/www/vhosts/dynportal/inc/defaults.inc.php
-## sed -i s/DOMAINNAME/"$DOMAINNAME"/g /home/viciportal-ssl.conf
+
 
 mysql -e "use asterisk; update system_settings set active_voicemail_server='$ip_address', webphone_url='https://$hostname/CyburPhone/cyburphone.php', sounds_web_server='https://$hostname';"
 
@@ -929,6 +937,6 @@ curl -sL https://download.amdy.io/download/dial-dropdown.sh | bash
 
 read -p 'Press Enter to Reboot: '
 
-echo "Restarting AlmaLinux"
+echo "Restarting HNC CC SERVER RESTART"
 
 reboot
