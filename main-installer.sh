@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "Vicidial installation AlmaLinux/RockyLinux with HNC-CC and Dynamic portal"
+echo "HCN installation AlmaLinux/RockyLinux with HNC-CC and Dynamic portal"
 
 # Function to prompt user for input
 prompt() {
